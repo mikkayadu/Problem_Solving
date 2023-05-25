@@ -1,1 +1,13 @@
-
+def swap_case(s):
+    empty_str = ""
+    for i in s:
+        if i.isupper():
+            modified = i.lower()
+            empty_str += modified
+        elif i.islower():
+            modified=i.upper()
+            empty_str +=modified
+        else:
+            empty_str +=i
+        
+    return empty_str
