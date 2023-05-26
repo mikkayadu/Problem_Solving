@@ -1,0 +1,11 @@
+  def percentageLetter(self, s, letter):
+      """
+      :type s: str
+      :type letter: str
+      :rtype: int
+      """
+      counter = 0
+      for i in s:
+          if i == letter:
+              counter += 1
+      return int((counter*100)/len(s))
