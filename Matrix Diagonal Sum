@@ -1,0 +1,19 @@
+class Solution(object):
+    def diagonalSum(self, mat):
+        """
+        :type mat: List[List[int]]
+        :rtype: int
+        """
+        primary = 0
+        secondary = len(mat[0]) - 1
+        res = 0
+        for i in mat:
+            if primary == secondary:
+                res += i[primary]
+                primary +=1
+                secondary -=1
+            else:
+                res += i[primary] + i[secondary]
+                primary += 1
+                secondary -=1
+        return res 
