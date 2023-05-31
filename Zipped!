@@ -1,0 +1,20 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+no_students, no_subjects = tuple(map(int, input().split()))
+main_list = []
+
+for _ in range(no_subjects):
+    scores = list(map(float, input().split()))
+    main_list.append(scores)
+
+
+tuple_score = zip(*main_list)
+
+
+for _ in tuple_score:
+    average = sum(_)/no_subjects
+    print(average)
+    
+
+    
+
+    
