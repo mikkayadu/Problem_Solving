@@ -1,0 +1,24 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import OrderedDict
+
+ordered_dictionary = OrderedDict()
+n = int(input())
+
+
+
+for _ in range(n):
+    orderList = []
+    string = input().split()
+    for word in string:
+        if word.isnumeric():
+            quantity = word
+        else:
+            orderList.append(word)
+    
+    order = " ".join(orderList)
+    
+    quantity = int(quantity)
+    ordered_dictionary[order] = quantity + ordered_dictionary.get(order, 0)
+
+for order, quantity in ordered_dictionary.items():
+    print(order, quantity)
