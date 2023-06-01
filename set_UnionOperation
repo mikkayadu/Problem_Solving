@@ -1,0 +1,6 @@
+no_english = int(input())
+student_no = set(map(int, input().split()))
+no_french = int(input())
+student2_no = set(map(int, input().split()))
+
+print(len(student_no|student2_no))
