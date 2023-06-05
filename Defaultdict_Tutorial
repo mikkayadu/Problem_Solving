@@ -1,0 +1,16 @@
+from collections import defaultdict
+
+d = defaultdict(list)
+
+no_a, no_b = map(int, input().split())
+
+for i in  range(no_a):
+        word = input()
+        d[word].append(i+1)
+        
+for _ in range(no_b):
+    word = input()
+    if word in d:
+        print(*d[word])
+    else:
+        print(-1)
