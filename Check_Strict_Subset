@@ -1,0 +1,23 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+Super_set = set(map(int, input().split()))
+no_of_subset = int(input())
+strict_subset = False
+tracker = False
+
+for i in range(no_of_subset):
+    subset = set(map(int, input().split()))
+    
+    for i in Super_set:
+        if i not in subset:
+            strict_subset = True
+            break
+            
+    if subset.issubset(Super_set) and strict_subset == True:
+        tracker = True
+    else:
+        tracker = False
+        break
+if tracker == True:
+    print(True)
+else:
+    print(False)
