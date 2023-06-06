@@ -1,0 +1,31 @@
+class Solution(object):
+    def interpret(self, command):
+        """
+        :type command: str
+        :rtype: str
+        """
+        d = {
+            "G":"G",
+            "()": 'o',
+            "(al)": 'al'
+        }
+        ans = ""
+        index = 0
+
+        while index <len(command)-1:
+
+            if command[index] == "G":
+                ans += d['G']
+                index +=1
+            elif command[index] == '(' and command[index+1] == ')':
+                ans += d['()']
+                index +=1
+            elif command[index] == '(' and command[index+1] == 'a':
+                ans += d['(al)']
+                index += 1
+            else:
+                index +=1
+        if command[index ] == "G":
+            ans += d['G']
+
+        return ans
