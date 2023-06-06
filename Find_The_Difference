@@ -1,0 +1,19 @@
+class Solution(object):
+    def findTheDifference(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
+        string_s = s
+        string_t = t
+        d = dict()
+
+        for letter in string_t:
+            d[letter] = d.get(letter, 0) + 1
+        for letter in string_s:
+            d[letter] = d[letter] -1
+
+        for key, value in d.items():
+            if value == 1:
+                return key
