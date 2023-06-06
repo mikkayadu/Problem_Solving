@@ -1,0 +1,25 @@
+class Solution(object):
+    def isAlienSorted(self, words, order):
+        """
+        :type words: List[str]
+        :type order: str
+        :rtype: bool
+        """
+        tracker = True
+        
+        for i in range(len(words)):
+            
+            if i+1 == len(words):
+                break
+
+            first_word = words[i]
+            second_word = words[i+1]
+            
+        
+            if min([first_word, second_word], key=lambda x : [order.index(char) for char in x]) == first_word:
+                tracker = True
+            else:
+                tracker = False
+                break
+        
+        return tracker
