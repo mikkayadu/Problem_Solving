@@ -1,0 +1,14 @@
+class Solution:
+    def nearestValidPoint(self, x: int, y: int, points: list[list[int]]) -> int:
+        smallest = []
+        indexes = []
+        for index, data in enumerate(points):
+            if x == data[0] or y == data[1]:
+                distance = abs(x-data[0]) + abs(y-data[1])
+                smallest.append(distance)
+                indexes.append(index)
+
+        if len(smallest) == 0:
+            return -1
+
+        return indexes[smallest.index(min(smallest))]
