@@ -1,0 +1,45 @@
+n = int(input())
+
+numbers = list(map(int, input().split()))
+negative = []
+positive = []
+zero = []
+
+"""
+plan 
+Store only one number in the negative array
+Store all postive numbers in the positive array
+Store all other numbers in the zero array. 
+However, when there's no negative number in the `positive` array, 
+Go to the zero array and take two negative numbers from there.
+"""
+
+#Iterate through the array
+for number in numbers:
+
+    #Just store negative one negative number
+    if number <0 and len(negative)<1 :
+        negative.append(number)
+
+    #Store all positive numbers in the `positive` array.
+    elif number>0 :
+        positive.append(number)
+    #Store all other negative numbers and zero itself in the zero array.
+
+    elif number or number == 0:
+        zero.append(number)
+"""
+In the case where there are no negative numbers , Go to the zero array and go and take
+two negative numbers from there
+"""
+if len(positive) == 0:
+    for element in zero:
+        if element != 0 and len(positive) < 2:
+            positive.append(element)
+    for n in positive:
+        zero.remove(n)
+        #go to the zero array and take two numbes
+
+print(len(negative), *negative, sep=" ")
+print(len(positive), *positive, sep=" ")
+print(len(zero), *zero, sep=" ")
