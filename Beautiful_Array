@@ -1,0 +1,24 @@
+t = int(input())
+
+for _ in range(t):
+    first_rect = set(map(int, input().split()))
+    second_rect = set(map(int, input().split()))
+
+
+    common = list(first_rect.intersection(second_rect))
+
+
+    if len(first_rect) ==1 or len(second_rect) == 1 or len(common) == 0:
+        print("No")
+
+    else:
+        common = max(common)
+        first_rect=list(first_rect)
+        second_rect=list(second_rect)
+        first_rect.remove(common)
+        second_rect.remove(common)
+        total = first_rect[0] + second_rect[0]
+        if total == common:
+            print("Yes")
+        else:
+            print("No")
