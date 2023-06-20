@@ -1,0 +1,9 @@
+class Solution:
+    def transpose(self, matrix: list[list[int]]) -> list[list[int]]:
+        ans = []
+        for col in range(len(matrix[0])):
+            rows = []
+            for row in range(len(matrix)):
+                rows.append(matrix[row][col])
+            ans.append(rows)
+        return ans
