@@ -1,0 +1,21 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        ans = []
+        for letter in words[0]:
+            found  = False
+            for i in range(1, len(words)):
+                if letter in words[i]:
+                    found = True
+                    word_list = list(words[i])
+                    word_list.remove(letter)
+                    words[i] = "".join(word_list)
+
+
+
+                else:
+                    found = False
+                    break
+            if found == True:
+                ans.append(letter)
+        return ans
+       
