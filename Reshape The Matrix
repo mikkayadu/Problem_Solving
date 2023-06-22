@@ -1,0 +1,17 @@
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        main_list, sublist = [] ,[]
+        if r * c != len(mat) * len(mat[0]):
+            return mat
+        
+        for row_idx in range(len(mat)):
+            for col in range(len(mat[0])):
+                
+                x = mat[row_idx][col]
+                sublist.append(mat[row_idx][col])
+
+                if len(sublist) == c:
+                    main_list.append(sublist)
+                    sublist = []
+        
+        return main_list
