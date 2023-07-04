@@ -1,0 +1,31 @@
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        ans = []
+        m = len(matrix)
+        n= len(matrix[0])
+        while len(ans) < (n*m):
+            first_row = matrix[0]
+            for num in first_row:
+                ans.append(num)
+            del matrix[0]
+
+            if len(matrix) == 0 or len(matrix[0]) == 0 :
+                break
+            
+            for j in matrix[:-1]:
+                ans.append(j[-1])
+                j.remove(j[-1])
+        
+            last_row = matrix[-1]
+            for num in last_row[::-1]:
+                ans.append(num)
+            del matrix[-1]
+
+            if len(matrix) == 0 or len(matrix[0]) == 0:
+                break
+
+            if n>1:
+                for k in matrix[::-1]:
+                    ans.append(k[0])
+                    k.remove(k[0])
+        return ans
