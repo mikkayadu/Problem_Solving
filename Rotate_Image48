@@ -1,0 +1,22 @@
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        # matrix_copy = matrix.copy()
+        # for col_idx in range(len(matrix_copy[0])):
+        #     columns = []
+            
+        #     for row_idx in range(len(matrix_copy)):
+        #         columns.append(matrix_copy[row_idx][col_idx])
+        #     matrix[col_idx] = columns[::-1]
+
+        n = len(matrix)
+    
+        for row in range(n):
+            for col in range(row, n):
+                matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
+
+        for array in matrix:
+            array.reverse()
+        return None
