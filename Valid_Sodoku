@@ -1,0 +1,38 @@
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        counter = 10
+        for row in range(9):
+            for i in range(9):
+                if board[row][i] == '.':
+                    board[row][i] = counter
+                    counter +=1
+
+            
+            
+        print(board)
+        for row in board:
+            if len(set(row))  != len(row):
+                return False
+        
+        for col_idx in range(len(board[0])):
+            columns = []
+            for row_idx in range(len(board)):
+                columns.append(board[row_idx][col_idx])
+            if len(set(columns))  != len(columns):
+                return False
+            
+        for i in range(0,9,3):
+            sliced = board[i: i+3]
+            box1, box2, box3 = [], [], []
+            for row in sliced:
+                box1= box1 + row[0:3]
+                box2 = box2 + row[3:6]
+                box3 = box3 + row[6:9]
+
+            if len(set(box1)) != len(box1):
+                return False
+            if len(set(box2)) != len(box2):
+                return False
+            if len(set(box3)) != len(box3):
+                return False
+        return True
