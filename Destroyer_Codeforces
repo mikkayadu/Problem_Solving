@@ -1,0 +1,23 @@
+t = int(input())
+ 
+ 
+def check(arr):
+    arr.sort(reverse=True)
+    for j in range(n):
+        counter = 0
+        if arr[j] != -1:
+            for i in range(arr[j], -1, -1):
+                if i in arr:
+                    arr[arr.index(i)] = -1
+                else:
+                    return "NO"
+                    
+            
+ 
+    return "YES"
+ 
+for _ in range(t):
+    n = int(input())
+ 
+    arr = list(map(int, input().split()))
+    print(check(arr))
