@@ -1,0 +1,17 @@
+t = int(input())
+def solve(arr):
+    min = float('inf')
+    for element in arr:
+        if element < min:
+            min = element 
+        else:
+            return "YES"
+ 
+        
+    return "NO"
+ 
+ 
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    print(solve(arr))
