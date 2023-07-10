@@ -1,0 +1,28 @@
+st, end = 1, 1
+n = int(input())
+a = float('-inf')
+a =  [a] + (list(map(int, input().split())))
+ 
+a.append(float('inf'))
+ 
+for i in range(n-1):
+    if a[i+1] < a[i] :
+        st = i
+        break
+ 
+ 
+ 
+for i in range(n, 0, -1):
+    if a[i]<a[i-1]:
+        end=i
+        break
+ 
+ 
+reverse = a[st:end+1]
+ 
+ 
+if a[st] < a[end+1] and a[end]>a[st-1] and sorted(reverse) == reverse[::-1]:
+    print("yes")
+    print(st, end)
+else:
+    print("no")
