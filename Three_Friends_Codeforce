@@ -1,0 +1,36 @@
+t = int(input())
+ 
+ 
+def solve():
+    distance = 0
+    lst = list(map(int, input().split()))
+    lst.sort()
+    a,b,c=lst
+    
+    if a==b==c:
+        return 0
+    elif a == b:
+        c-=1
+        if c!=a:
+            a+=1;b+=1
+        ans = abs(a-b) + abs(a-c) + abs(b-c)
+        return ans
+    elif b == c:
+        a+=1; 
+        if a!=b:
+            b-=1; c-=1
+        ans = abs(a-b) + abs(a-c) + abs(b-c)
+        return ans
+    else:
+        a+=1; c-=1
+        ans = abs(a-b) + abs(a-c)+abs(b-c)
+        return ans
+ 
+ 
+ 
+ 
+ 
+for _ in range(t):
+ 
+    print(solve())
+    
