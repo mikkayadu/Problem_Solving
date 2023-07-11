@@ -1,0 +1,25 @@
+from collections import Counter
+n, m = list(map(int, input().split()))
+matrix = [
+]
+for _ in range(n):
+    matrix.append(input())
+
+
+columns = [[row[i] for row in matrix] for i in range(m)]
+ans = ""
+
+for i in range(n):
+    rows = matrix[i]
+    count_row = Counter(rows)
+    for j in range(m):
+        count_column = Counter(columns[j])
+        if count_row[matrix[i][j]] <= 1 and  count_column[matrix[i][j]] <= 1:
+            ans+= matrix[i][j]
+
+            
+
+print(ans)
+
+"""
+https://codeforces.com/problemset/problem/90/B
