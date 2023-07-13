@@ -1,0 +1,20 @@
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        n = len(skill)
+        i, j = 0, n-1
+        skill.sort()
+        store = []
+        ans = 0
+
+        while i<j:
+            lst = [skill[i], skill[j]]
+            i+=1
+            j-=1
+            store.append(lst)
+        target = sum(store[0])
+        for lst in store:
+            if sum(lst) == target:
+                ans += lst[0] * lst[1]
+            else:
+                return -1
+        return ans
