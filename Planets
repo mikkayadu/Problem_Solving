@@ -1,0 +1,16 @@
+
+from collections import Counter
+t  = int(input())
+for _ in range(t):
+    n, c = list(map(int, input().split()))
+    arr = list(map(int, input().split()))
+    total = 0
+    orbits = set(arr)
+    number_count = Counter(arr)
+    
+ 
+    for number in number_count:
+        method1 = number_count[number] * 1
+        method2 = c
+        total += min(method1, method2)
+    print(total)
