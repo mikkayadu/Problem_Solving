@@ -1,0 +1,11 @@
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    lst = list(map(int, input().split()))
+    maximum = max(lst)
+    minimum = min(lst)
+    i = lst.index(maximum)
+    j = lst.index(minimum)
+    ans = [i+1, j+1]
+    ans.sort()
+    print(*ans)
