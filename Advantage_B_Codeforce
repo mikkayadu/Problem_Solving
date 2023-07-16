@@ -1,0 +1,13 @@
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    array = list(map(int, input().split()))
+    another_array = array.copy(); another_array.sort()
+    maximum = another_array[-1]
+    second_max = another_array[-2]
+    for i in range(n):
+        if array[i] != maximum:
+            array[i]  = array[i] - maximum
+        else:
+            array[i] = array[i] - second_max
+    print(*array)
