@@ -1,0 +1,24 @@
+t = int(input())
+
+for _ in range(t):
+    s = input()
+    minimum = float('inf')
+    last_one  = -1
+    last_two = -1
+    last_three = -1
+    for r in range(len(s)):
+        if s[r] == '1':
+            last_one = r
+        elif s[r] == '2':
+            last_two = r
+        else:
+            last_three = r
+        # print(last_one, last_two, last_three )
+        if last_one != -1 and last_two != -1 and last_three !=-1 :
+            l = min(last_one, last_two, last_three)
+        
+            minimum = min(minimum, r-l+1) 
+    if minimum == float('inf'):
+        print(0)
+    else:
+        print(minimum)
