@@ -1,0 +1,20 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        curstring = ""
+        max1 = 0
+
+        
+
+        for r in range(len(s)):
+            if s[r] not in curstring:
+                curstring += s[r]
+                print("adding" , curstring)
+            else:
+                max1 = len(curstring) if len(curstring) > max1 else max1
+                curstring += s[r]
+                l = curstring.index(s[r])
+                curstring = curstring[l+1:]
+                print(curstring)
+            max1 = len(curstring) if len(curstring) > max1 else max1
+        return max1
+
