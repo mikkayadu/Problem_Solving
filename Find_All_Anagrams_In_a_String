@@ -1,0 +1,23 @@
+from collections import Counter
+def findAnagrams( s: str, p: str) -> list[int]:
+    k = len(p)
+    p_counter = Counter(p)
+    ans = []
+
+    curstring = s[:k]
+    s_counter = Counter(curstring)
+
+    if s_counter == p_counter:
+        ans.append(0)
+    
+    for r in range(k, len(s)):
+        curstring += s[r]
+        l = r - k + 1
+        compare = Counter(curstring[l:])
+        
+        
+        if compare == p_counter:
+            ans.append(l)
+    return ans
+
+print(findAnagrams(s = "abab", p = "ab"))
