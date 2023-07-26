@@ -1,0 +1,14 @@
+n = int(input())
+ 
+arr = list(map(int, input().split()))
+arr.sort()
+max1 = 0
+ 
+l = 0
+for r in range(n):
+ 
+    while arr[r] - arr[l] > 5:
+        l += 1 
+    max1 = max(max1, r-l +1)
+print(max1)
+    
