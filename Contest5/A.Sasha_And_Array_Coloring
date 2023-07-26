@@ -1,0 +1,12 @@
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    arr.sort()
+    l, r = 0, n-1
+    ans = 0
+    while l<r:
+        ans += arr[r] - arr[l]
+        r-=1; l+=1
+    print(ans)
