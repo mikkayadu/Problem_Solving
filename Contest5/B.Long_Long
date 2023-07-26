@@ -1,0 +1,24 @@
+t = int(input())
+ 
+ 
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    arr = [num  for num in arr if num != 0]
+    
+    sum1 = 0
+    if len(arr)>0 and arr[-1] < 0:
+        arr.append(float('inf'))
+    
+    ans = []
+    l = 0
+ 
+    for r in range(len(arr)):
+        if arr[r] > 0 :
+            ans.append(len(arr[l:r]))
+            l = r + 1
+        
+        if arr[r] != float('inf'):
+            sum1 += abs(arr[r])
+    ans = [num for num in ans if num!=0]
+    print(sum1, len(ans))
