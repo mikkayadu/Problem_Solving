@@ -1,0 +1,43 @@
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        adj_list = defaultdict(list)
+        mydict = defaultdict(int)
+        # building the graph
+        for end, start in prerequisites:
+            adj_list[start].append(end)
+            mydict[end] += 1
+
+       
+        ans = []
+        
+        #bfs
+        
+
+        for i in range(numCourses):
+            if mydict[i] == 0:
+                ans.append(i)
+
+        queue = deque(ans)
+        # print("queue", queue)
+        # adding to queue
+
+        while queue:
+            node = queue.popleft()
+            # ans.append(node)
+            
+            for neighbours in adj_list[node]:
+                
+                mydict[neighbours] -= 1
+                if mydict[neighbours] == 0:
+                    queue.append(neighbours)
+                    ans.append(neighbours)
+                    
+                    # mydict.pop(neighbours)
+            
+            
+
+        return ans if len(ans) == numCourses else []
+
+
+
+        
