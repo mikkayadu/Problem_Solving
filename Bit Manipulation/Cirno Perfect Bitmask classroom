@@ -1,0 +1,19 @@
+t = int(input())
+ 
+def solve():
+    x = int(input())
+ 
+    if x == 1:
+        return 3
+    
+    if (x & (x - 1)) == 0:
+        return x + 1
+ 
+    
+    lsb_position = 0
+    while x & (1<<lsb_position) == 0:
+        lsb_position +=1
+    return 1<<lsb_position
+ 
+for _ in range(t):
+    print(solve())
