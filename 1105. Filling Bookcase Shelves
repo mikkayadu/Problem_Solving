@@ -1,0 +1,22 @@
+class Solution:
+    def minHeightShelves(self, books: List[List[int]], shelfWidth: int) -> int:
+        memo = {}
+        def dp(i, rem, maxi):
+
+            if i == len(books):
+                return maxi
+            
+            if (i, rem, maxi) in memo:
+                return memo[i, rem, maxi]
+
+            width, height = books[i]
+            
+            if width <= rem:
+                memo[i, rem, maxi] =  min(dp(i+1, rem-width, max(maxi, height)), maxi + dp(i+1, shelfWidth-width, height))
+                return memo[i, rem, maxi]
+            
+            else:
+                memo[i, rem, maxi] =  maxi + dp(i+1, shelfWidth-width, height)
+                return memo[i, rem, maxi]
+                
+        return dp(0,shelfWidth, 0)
