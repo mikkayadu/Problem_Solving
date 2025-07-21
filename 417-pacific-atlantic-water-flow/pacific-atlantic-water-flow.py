@@ -29,15 +29,21 @@ class Solution:
 
 
 
-        for  i in range(len(heights)):
-            for j in range(len(heights[0])):
-                if (i, j) in atlantic:
-                    dfs(i, j , atlantic)
+        for j in range(len(heights[0])):
+            if (0, j ) in pacific:
+                dfs(0, j, pacific)
         
-        for  i in range(len(heights)):
-            for j in range(len(heights[0])):
-                if (i, j) in pacific:
-                    dfs(i, j , pacific)
+        for j in range(len(heights)):
+            if (j, 0) in pacific:
+                dfs(j, 0, pacific)
+
+        for j in range(len(heights[0])):
+            if (len(heights) - 1, j ) in atlantic:
+                dfs(len(heights) - 1, j, atlantic)
+        
+        for j in range(len(heights)):
+            if (j, len(heights[0]) -1) in atlantic:
+                dfs(j, len(heights[0]) -1, atlantic)
     
         return list(atlantic.intersection(pacific))
 
