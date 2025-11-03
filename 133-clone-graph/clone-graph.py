@@ -10,29 +10,23 @@ from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         
-        if not node:
-            return 
         visited = {}
-
-        def solve(node):
+        def helper(node):
+            if not node:
+                return
+                
             if node in visited:
                 return visited[node]
             
-            clone = Node(node.val)
-            visited[node]  = clone
 
-            
-
+            curNeighbours = []
+            visited[node] = Node(node.val, curNeighbours)
             for nei in node.neighbors:
-                clone.neighbors.append(solve(nei))
-                
-            return clone
+                neighbour = helper(nei)
+                curNeighbours.append(neighbour)
 
-        return solve(node)
-
-        
-
-        
             
-            
+
+            return visited[node]
         
+        return helper(node) 
